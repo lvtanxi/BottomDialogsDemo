@@ -77,5 +77,8 @@ public class MainActivity extends AppCompatActivity {
     public void showCustBottomSheet(View view) {
         CustBottomDialog.startCustBottomDialog(this);
     }
+    public void showFragmentDialog(View view) {
+       new TestDialog().show(getSupportFragmentManager(),"xx");
+    }
 
 }

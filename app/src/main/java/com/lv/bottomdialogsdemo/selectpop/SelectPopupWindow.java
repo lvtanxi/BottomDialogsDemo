@@ -123,7 +123,6 @@ public class SelectPopupWindow<T extends ExtendItem> extends PopupWindow impleme
             }
             int dividerMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 48.0f, mContext.getResources().getDisplayMetrics());
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, dividerMargin);
-            LinearLayout.LayoutParams paramsLine = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, 1);
             int color = ContextCompat.getColor(mContext, R.color.colorPrimary);
             Button itemBtn;
             ExtendItem item;
@@ -139,23 +138,14 @@ public class SelectPopupWindow<T extends ExtendItem> extends PopupWindow impleme
                 itemBtn.setAllCaps(false);
                 if (0 == index) {
                     if (mBtnTakeTitle.getVisibility() == View.VISIBLE) {
-                        itemBtn.setBackgroundResource(spinnerItems.size() == 1 ? R.drawable.btn_bottom : R.drawable.border_top_bottom_gray_selector);
+                        itemBtn.setBackgroundResource(spinnerItems.size() == 1 ? R.drawable.btn_bottom : R.drawable.btn_center);
                     } else {
                         itemBtn.setBackgroundResource(spinnerItems.size() == 1 ? R.drawable.btn_dialog_selector : R.drawable.btn_top);
                     }
                 } else if (index == spinnerItems.size() - 1) {
-                    if (spinnerItems.size() == 2 && mBtnTakeTitle.getVisibility() != View.VISIBLE) {
-                        mItemView = new Space(mContext);
-                        mItemView.setLayoutParams(paramsLine);
-                        mSelectPopPanent.addView(mItemView);
-                    }
                     itemBtn.setBackgroundResource(R.drawable.btn_bottom);
                 } else {
-                    if (mBtnTakeTitle.getVisibility() != View.VISIBLE && index == 1) {
-                        itemBtn.setBackgroundResource(R.drawable.border_top_bottom_gray_selector);
-                    } else {
-                        itemBtn.setBackgroundResource(R.drawable.background_border_bottom_gray_selector);
-                    }
+                    itemBtn.setBackgroundResource(R.drawable.btn_center);
                 }
                 mSelectPopPanent.addView(itemBtn);
             }

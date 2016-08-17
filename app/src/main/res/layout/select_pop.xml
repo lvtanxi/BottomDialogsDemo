@@ -23,8 +23,9 @@
             <LinearLayout
                 android:id="@+id/select_pop_panent"
                 style="@style/MatchWrap.Vertical"
-                android:gravity="center"
-                android:padding="0dp">
+                android:divider="@drawable/sape_divider_vertical"
+                android:showDividers="middle"
+                android:gravity="center">
 
                 <TextView
                     android:id="@+id/btn_take_title"
@@ -35,9 +36,9 @@
                     android:paddingLeft="5dp"
                     android:paddingRight="5dp"
                     android:text="请选择"
+                    android:visibility="gone"
                     android:textColor="@color/colorAccent"
-                    android:textSize="14sp"
-                    android:visibility="gone"/>
+                    android:textSize="14sp"/>
 
             </LinearLayout>
         </ScrollView>

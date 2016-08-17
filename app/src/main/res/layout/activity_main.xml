@@ -31,4 +31,10 @@
        android:onClick="showCustBottomSheet"
        android:text="cust-dialog"
        android:textAllCaps="false"/>
+   <Button
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:onClick="showFragmentDialog"
+       android:text="fragment-dialog"
+       android:textAllCaps="false"/>
 </LinearLayout>

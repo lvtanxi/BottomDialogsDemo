@@ -27,11 +27,11 @@ public class CustBottomDialog extends AppCompatActivity{
 
     public void oneItem(View view) {
         new SelectPopupWindow<>(this)
-                .setTitle("测试")
                 .addDefExtendItems("一个item").show(view);
     }
     public void twoItem(View view) {
         new SelectPopupWindow<>(this)
-                .addDefExtendItems("两个item","两个item").show(view);
+                .setTitle("你好呀")
+                .addDefExtendItems("两个item","两个item","两个item","两个item").show(view);
     }
 }

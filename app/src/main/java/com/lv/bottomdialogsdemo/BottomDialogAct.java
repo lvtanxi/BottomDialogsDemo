@@ -82,4 +82,5 @@ public class BottomDialogAct extends AppCompatActivity{
                 .setCustomView(LayoutInflater.from(this).inflate(R.layout.activity_main,null))
                 .show();
     }
+
 }
