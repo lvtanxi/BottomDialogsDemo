@@ -14,7 +14,7 @@
     <style name="BottomSheet.StyleDialog" parent="BottomSheet.Dialog">
         <item name="android:backgroundDimAmount">0.5</item>
         <item name="android:windowAnimationStyle">@style/BottomSheet.Animation</item>
-        <item name="android:textColorPrimary">#DDffffff</item>
+        <item name="android:textColorPrimary">@color/colorAccent</item>
         <item name="android:textColorSecondary">@color/colorAccent</item>
         <item name="android:textColorHint">@color/colorAccent</item>
         <item name="bs_dialogBackground">@color/abc_search_url_text_normal</item>
@@ -22,6 +22,10 @@
         <item name="bs_numColumns">4</item>
         <item name="bs_listStyle">@style/BottomSheet.StyleList</item>
         <item name="bs_gridItemTitleTextAppearance">@color/colorAccent</item>
+    </style>
+    <style name="BottomSheet.StyleDialog2" parent="BottomSheet.Dialog">
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textSize">16sp</item>
     </style>
 
     <style name="BottomSheet.StyleList" parent="BottomSheet.List.Dark" >

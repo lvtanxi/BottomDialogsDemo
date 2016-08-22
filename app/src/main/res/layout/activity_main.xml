@@ -18,6 +18,7 @@
        android:layout_height="wrap_content"
        android:onClick="showOneDialog"
        android:text="one-dialog"
+       android:background="?android:selectableItemBackground"
        android:textAllCaps="false"/>
    <Button
        android:layout_width="match_parent"
@@ -36,5 +37,11 @@
        android:layout_height="wrap_content"
        android:onClick="showFragmentDialog"
        android:text="fragment-dialog"
+       android:textAllCaps="false"/>
+   <Button
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:onClick="showBottomSheetDialog"
+       android:text="BottomSheetDialog"
        android:textAllCaps="false"/>
 </LinearLayout>

@@ -3,9 +3,20 @@ package com.lv.bottomdialogsdemo;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomSheetBehavior;
+import android.support.design.widget.BottomSheetDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Toast;
+
+import com.lv.bottomdialogsdemo.adapter.ListRecyclerAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import rebus.bottomdialog.BottomDialog;
 import rebus.bottomdialog.Item;
@@ -13,6 +24,7 @@ import rebus.bottomdialog.Item;
 
 public class MainActivity extends AppCompatActivity {
     private BottomDialog dialog;
+    private BottomSheetDialog mBottomSheetDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,6 +91,50 @@ public class MainActivity extends AppCompatActivity {
     }
     public void showFragmentDialog(View view) {
        new TestDialog().show(getSupportFragmentManager(),"xx");
+    }
+
+    public void showBottomSheetDialog(View v){
+
+        mBottomSheetDialog = new BottomSheetDialog(this);
+        View view = LayoutInflater.from(this).inflate(R.layout.dialog_bottom_sheet, null, false);
+        mBottomSheetDialog.setContentView(view);
+
+        RecyclerView recyclerView = (RecyclerView) view;
+        recyclerView.setHasFixedSize(true);
+        List<String> list = new ArrayList<>();
+        for (int i = 0; i < 20; i++) {
+            list.add("我是第" + i + "个");
+        }
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        linearLayoutManager.setSmoothScrollbarEnabled(true);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        ListRecyclerAdapter adapter = new ListRecyclerAdapter(list);
+        recyclerView.setAdapter(adapter);
+
+        setBehaviorCallback();
+        if (mBottomSheetDialog.isShowing()) {
+            mBottomSheetDialog.dismiss();
+        } else {
+            mBottomSheetDialog.show();
+        }
+    }
+
+    private void setBehaviorCallback() {
+        View view = mBottomSheetDialog.getDelegate().findViewById(android.support.design.R.id.design_bottom_sheet);
+        final BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.from(view);
+        bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
+            @Override
+            public void onStateChanged(@NonNull View bottomSheet, int newState) {
+                if (newState == BottomSheetBehavior.STATE_HIDDEN) {
+                    mBottomSheetDialog.dismiss();
+                    bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                }
+            }
+
+            @Override
+            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
+            }
+        });
     }
 
 }

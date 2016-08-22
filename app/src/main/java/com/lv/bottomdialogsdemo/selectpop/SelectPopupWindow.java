@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.widget.Space;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -42,7 +41,6 @@ public class SelectPopupWindow<T extends ExtendItem> extends PopupWindow impleme
     private TextView mBtnTakeTitle;
     private Button mBtnCancel;
     private ScrollView mScrollView;
-    private Space mItemView;
 
     private View assignViews() {
         LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -192,7 +190,6 @@ public class SelectPopupWindow<T extends ExtendItem> extends PopupWindow impleme
         mBtnTakeTitle = null;
         mBtnCancel = null;
         mScrollView = null;
-        mItemView = null;
     }
 
 

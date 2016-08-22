@@ -42,8 +42,6 @@ public class BottomSheetAct extends AppCompatActivity implements AdapterView.OnI
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ui_main);
         action = getIntent().getFlags();
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
         q = new CocoQuery(this);
         setTitle(getIntent().getStringExtra("title"));
         String[] items = new String[]{"Janet Perkins", "Mary Johnson", "Peter Carlsson", "Trevor Hansen", "Aaron Bennett"};
@@ -111,7 +109,7 @@ public class BottomSheetAct extends AppCompatActivity implements AdapterView.OnI
                 }).build();
                 break;
             case 3:
-                sheet = new BottomSheet.Builder(this).sheet(R.menu.list).listener(new DialogInterface.OnClickListener() {
+                sheet = new BottomSheet.Builder(this,R.style.BottomSheet_StyleDialog2).sheet(R.menu.list).listener(new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         BottomSheetAct.this.onClick(adapter.getItem(position), which);
